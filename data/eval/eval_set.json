@@ -1,0 +1,86 @@
+{
+  "version": "1.0",
+  "description": "Evaluation questions for the IT Support Agent. Each entry specifies the question, expected category, expected source documents (by Document ID), key facts that should appear in the answer, and whether abstention is expected.",
+  "questions": [
+    {
+      "id": "eval-001",
+      "question": "My laptop cannot connect to Wi-Fi. Other devices on the same network work fine. What should I do?",
+      "category": "network_connectivity",
+      "expected_sources": ["KB-NET-001"],
+      "key_facts": ["check device manager", "forget and reconnect", "flush dns", "ipconfig"],
+      "expects_abstention": false
+    },
+    {
+      "id": "eval-002",
+      "question": "My account is locked after too many failed login attempts. How do I unlock it?",
+      "category": "account_access",
+      "expected_sources": ["KB-AUTH-001"],
+      "key_facts": ["5 consecutive failed attempts", "30 minutes", "self-service", "helpdesk"],
+      "expects_abstention": false
+    },
+    {
+      "id": "eval-003",
+      "question": "I get an authentication failed error when connecting to VPN. What could cause this?",
+      "category": "network_connectivity",
+      "expected_sources": ["KB-NET-002"],
+      "key_facts": ["incorrect credentials", "expired MFA token", "authenticator app"],
+      "expects_abstention": false
+    },
+    {
+      "id": "eval-004",
+      "question": "An application says DLL not found when I try to launch it. How do I fix it?",
+      "category": "application_error",
+      "expected_sources": ["KB-APP-001"],
+      "key_facts": ["runtime library", "Visual C++ Redistributable", ".NET", "reinstall"],
+      "expects_abstention": false
+    },
+    {
+      "id": "eval-005",
+      "question": "My computer is running very slowly. What steps can I take?",
+      "category": "device_performance",
+      "expected_sources": ["KB-HW-001"],
+      "key_facts": ["Task Manager", "disk space", "startup programs", "Windows Update"],
+      "expects_abstention": false
+    },
+    {
+      "id": "eval-006",
+      "question": "I get a certificate error when connecting to VPN. What does that mean?",
+      "category": "network_connectivity",
+      "expected_sources": ["KB-NET-002"],
+      "key_facts": ["certificate error", "expired", "missing"],
+      "expects_abstention": false
+    },
+    {
+      "id": "eval-007",
+      "question": "How do I reset my password without calling the helpdesk?",
+      "category": "account_access",
+      "expected_sources": ["KB-AUTH-001"],
+      "key_facts": ["self-service", "SSPR portal", "verification method", "authenticator app"],
+      "expects_abstention": false
+    },
+    {
+      "id": "eval-008",
+      "question": "What is the recommended way to configure our Kubernetes ingress controller?",
+      "category": "general_it",
+      "expected_sources": [],
+      "key_facts": [],
+      "expects_abstention": true
+    },
+    {
+      "id": "eval-009",
+      "question": "asdfghjkl qwerty 12345",
+      "category": "unknown",
+      "expected_sources": [],
+      "key_facts": [],
+      "expects_abstention": true
+    },
+    {
+      "id": "eval-010",
+      "question": "My laptop fan is very loud and the device gets hot. What should I do?",
+      "category": "device_performance",
+      "expected_sources": ["KB-HW-001"],
+      "key_facts": ["thermal", "vents", "hard surface", "maintenance"],
+      "expects_abstention": false
+    }
+  ]
+}

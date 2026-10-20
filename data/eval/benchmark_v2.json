@@ -1,0 +1,1261 @@
+{
+  "version": "2.0",
+  "label_provenance": "Authored from synthetic runbooks by the implementation agent; not independently reviewed. Splits group follow-ups and partial variants with their parent scenario.",
+  "questions": [
+    {
+      "id": "common-KB-NET-001-1",
+      "family": "KB-NET-001-scenario-0",
+      "kind": "common",
+      "split": "calibration",
+      "question": "My laptop cannot connect to Wi-Fi but my phone can.",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [
+        "KB-NET-001"
+      ],
+      "expected_sections": [
+        "Step 1 \u2014 Confirm the problem scope"
+      ],
+      "evidence_quote": "## Step 1 \u2014 Confirm the problem scope\n\n- Check whether other devices on the same network (phone, colleague laptop) can connect.\n- If no device can connect: the access point or the broader network may be down. Report to\n  the network team and skip to the Escalation section.\n- If only your device cannot connect: continue to Step 2.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "common-KB-NET-001-2",
+      "family": "KB-NET-001-scenario-1",
+      "kind": "common",
+      "split": "calibration",
+      "question": "The wireless adapter has a yellow warning icon in Device Manager.",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [
+        "KB-NET-001"
+      ],
+      "expected_sections": [
+        "Step 2 \u2014 Check the wireless adapter"
+      ],
+      "evidence_quote": "## Step 2 \u2014 Check the wireless adapter\n\n1. Press **Windows + X** and select **Device Manager**.\n2. Expand **Network Adapters**.\n3. Look for a yellow warning icon on the Wi-Fi adapter.\n4. If a warning icon is present: right-click the adapter and select **Update driver** \u2192\n   **Search automatically for updated drivers**.\n5. If the adapter is missing entirely: the driver may be corrupted. Reinstall the driver from\n   the manufacturer's support site.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "common-KB-NET-001-3",
+      "family": "KB-NET-001-scenario-2",
+      "kind": "common",
+      "split": "calibration",
+      "question": "How do I forget and reconnect to my Wi-Fi network?",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [
+        "KB-NET-001"
+      ],
+      "expected_sections": [
+        "Step 3 \u2014 Forget and reconnect to the network"
+      ],
+      "evidence_quote": "## Step 3 \u2014 Forget and reconnect to the network\n\n1. Click the Wi-Fi icon in the taskbar.\n2. Click the arrow next to the network name \u2192 **Forget**.\n3. Wait 10 seconds, then reconnect and enter the passphrase.\n4. If you do not know the passphrase: contact the IT helpdesk. Passphrases are not stored\n   in tickets or email.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "common-KB-NET-001-4",
+      "family": "KB-NET-001-scenario-3",
+      "kind": "common",
+      "split": "held_out",
+      "question": "Wi-Fi DNS is failing. How do I flush DNS and reset TCP/IP?",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [
+        "KB-NET-001"
+      ],
+      "expected_sections": [
+        "Step 4 \u2014 Flush DNS and reset the TCP/IP stack"
+      ],
+      "evidence_quote": "## Step 4 \u2014 Flush DNS and reset the TCP/IP stack\n\nOpen **Command Prompt as Administrator** and run the following commands one at a time:\n\n```\nipconfig /flushdns\nnetsh int ip reset\nnetsh winsock reset\n```\n\nRestart the computer after running these commands.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "common-KB-NET-001-5",
+      "family": "KB-NET-001-scenario-4",
+      "kind": "common",
+      "split": "held_out",
+      "question": "My wireless IPv4 address starts with 169.254. What should I check?",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [
+        "KB-NET-001"
+      ],
+      "expected_sections": [
+        "Step 5 \u2014 Check IP address assignment"
+      ],
+      "evidence_quote": "## Step 5 \u2014 Check IP address assignment\n\n1. Open Command Prompt and run `ipconfig /all`.\n2. Confirm that the IPv4 address is in the expected subnet (e.g., 192.168.x.x or 10.x.x.x)\n   and not 169.254.x.x (APIPA \u2014 means DHCP failed).\n3. If the address is 169.254.x.x: the device is not receiving a DHCP lease.\n   - Try running `ipconfig /release` then `ipconfig /renew`.\n   - If this fails, report to the network team.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "common-KB-NET-001-6",
+      "family": "KB-NET-001-scenario-5",
+      "kind": "common",
+      "split": "held_out",
+      "question": "Wi-Fi stopped working while the VPN client was active.",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [
+        "KB-NET-001"
+      ],
+      "expected_sections": [
+        "Step 6 \u2014 Check firewall and VPN software"
+      ],
+      "evidence_quote": "## Step 6 \u2014 Check firewall and VPN software\n\n- Some third-party firewalls or VPN clients can block Wi-Fi when active.\n- Temporarily disable the VPN client and test connectivity.\n- Do not disable the corporate firewall permanently.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "common-KB-NET-002-1",
+      "family": "KB-NET-002-scenario-0",
+      "kind": "common",
+      "split": "calibration",
+      "question": "VPN cannot reach the server. How do I verify internet connectivity?",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [
+        "KB-NET-002"
+      ],
+      "expected_sections": [
+        "Step 1 \u2014 Verify internet connectivity"
+      ],
+      "evidence_quote": "## Step 1 \u2014 Verify internet connectivity\n\nBefore connecting to VPN, confirm you have internet access:\n\n1. Open a browser and navigate to a public site such as `example.com`.\n2. If you have no internet: troubleshoot your connection first (see KB-NET-001).\n3. VPN cannot connect without a working internet connection.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "common-KB-NET-002-2",
+      "family": "KB-NET-002-scenario-1",
+      "kind": "common",
+      "split": "calibration",
+      "question": "VPN authentication failed and the MFA prompt did not arrive.",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [
+        "KB-NET-002"
+      ],
+      "expected_sections": [
+        "Step 2 \u2014 Confirm credentials"
+      ],
+      "evidence_quote": "## Step 2 \u2014 Confirm credentials\n\n1. Use your corporate username (firstname.lastname format) and current password.\n2. If MFA is required: approve the push notification in your authenticator app within\n   60 seconds. If the notification does not arrive, use the TOTP code instead.\n3. Do not enter the MFA code in the password field.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "common-KB-NET-002-3",
+      "family": "KB-NET-002-scenario-2",
+      "kind": "common",
+      "split": "calibration",
+      "question": "VPN says the client software is out of date.",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [
+        "KB-NET-002"
+      ],
+      "expected_sections": [
+        "Step 3 \u2014 Check the VPN client version"
+      ],
+      "evidence_quote": "## Step 3 \u2014 Check the VPN client version\n\n1. Open the VPN client application.\n2. Navigate to **Help \u2192 About** and note the version number.\n3. Compare against the approved version listed in the IT portal.\n4. If out of date: download the current version from the internal software portal or\n   request an update from IT.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "common-KB-NET-002-4",
+      "family": "KB-NET-002-scenario-3",
+      "kind": "common",
+      "split": "held_out",
+      "question": "How do I clear the VPN client cache?",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [
+        "KB-NET-002"
+      ],
+      "expected_sections": [
+        "Step 4 \u2014 Clear VPN client cache"
+      ],
+      "evidence_quote": "## Step 4 \u2014 Clear VPN client cache\n\n1. Disconnect and close the VPN client.\n2. In Windows, navigate to `%APPDATA%\\VPNClient` (replace VPNClient with your client\n   folder name) and delete the `cache` subfolder.\n3. Restart the VPN client and reconnect.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "common-KB-NET-002-5",
+      "family": "KB-NET-002-scenario-4",
+      "kind": "common",
+      "split": "held_out",
+      "question": "How can I check whether my VPN server address is correct?",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [
+        "KB-NET-002"
+      ],
+      "expected_sections": [
+        "Step 5 \u2014 Check the VPN server address"
+      ],
+      "evidence_quote": "## Step 5 \u2014 Check the VPN server address\n\n1. Open the VPN client settings.\n2. Confirm the server address matches the address published in the IT portal.\n3. Do not change the server address without IT confirmation.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "common-KB-NET-002-6",
+      "family": "KB-NET-002-scenario-5",
+      "kind": "common",
+      "split": "held_out",
+      "question": "The hotel network blocks my VPN. What firewall settings should IT check?",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [
+        "KB-NET-002"
+      ],
+      "expected_sections": [
+        "Step 6 \u2014 Check local firewall settings"
+      ],
+      "evidence_quote": "## Step 6 \u2014 Check local firewall settings\n\n1. Open **Windows Defender Firewall with Advanced Security**.\n2. Confirm that the VPN client application is in the allowed applications list.\n3. VPN typically requires UDP ports 500 and 4500 (IKEv2) or TCP port 443 (SSL VPN).\n4. If you are on a public Wi-Fi network (hotel, airport): some networks block VPN traffic\n   and cannot be resolved by the user. Contact IT for alternative access options.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "common-KB-AUTH-001-1",
+      "family": "KB-AUTH-001-scenario-0",
+      "kind": "common",
+      "split": "calibration",
+      "question": "How do I use the self-service password reset portal?",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [
+        "KB-AUTH-001"
+      ],
+      "expected_sections": [
+        "Self-service password reset (SSPR)"
+      ],
+      "evidence_quote": "## Self-service password reset (SSPR)\n\nIf you have previously registered for self-service reset:\n\n1. Navigate to the corporate SSPR portal at the URL provided by IT during onboarding.\n2. Enter your corporate email address.\n3. Choose a verification method: authenticator app, email to your registered personal\n   address, or SMS to your registered phone number.\n4. Follow the prompts to set a new password.\n5. The new password must meet the corporate complexity requirements:\n   - Minimum 12 characters\n   - At least one uppercase letter, one lowercase letter, one digit, and one special\n     character\n   - Must not match any of the last 10 passwords\n6. After reset, sign out of all sessions and sign in with the new password.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "common-KB-AUTH-001-2",
+      "family": "KB-AUTH-001-scenario-1",
+      "kind": "common",
+      "split": "calibration",
+      "question": "My password reset registration is missing. How can helpdesk assist?",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [
+        "KB-AUTH-001"
+      ],
+      "expected_sections": [
+        "Helpdesk-assisted reset"
+      ],
+      "evidence_quote": "## Helpdesk-assisted reset\n\nIf SSPR is unavailable or you have not registered:\n\n1. Contact the IT helpdesk by phone or in-person. Do not request password resets by email\n   or chat, as identity cannot be verified securely through those channels.\n2. The helpdesk agent will verify your identity using your employee ID and at least one\n   additional factor (security questions, manager confirmation, or government-issued ID).\n3. The agent will issue a temporary password. You must change it at next login.\n4. Temporary passwords expire after **8 hours**.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "common-KB-AUTH-001-3",
+      "family": "KB-AUTH-001-scenario-2",
+      "kind": "common",
+      "split": "calibration",
+      "question": "My account locks again immediately although the password is correct.",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [
+        "KB-AUTH-001"
+      ],
+      "expected_sections": [
+        "If the account is locked but the password is correct"
+      ],
+      "evidence_quote": "## If the account is locked but the password is correct\n\n1. Wait 30 minutes for the lockout to clear automatically.\n2. Check whether any service, mobile app, or scheduled task is repeatedly attempting to\n   authenticate with an old password. Update the saved credentials in those services.\n3. If the lockout recurs immediately after clearing: contact the helpdesk, as a background\n   process may be causing repeated failures.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "common-KB-AUTH-001-4",
+      "family": "KB-AUTH-001-scenario-3",
+      "kind": "common",
+      "split": "held_out",
+      "question": "I forgot my password and have registered an authenticator for SSPR.",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [
+        "KB-AUTH-001"
+      ],
+      "expected_sections": [
+        "Self-service password reset (SSPR)"
+      ],
+      "evidence_quote": "## Self-service password reset (SSPR)\n\nIf you have previously registered for self-service reset:\n\n1. Navigate to the corporate SSPR portal at the URL provided by IT during onboarding.\n2. Enter your corporate email address.\n3. Choose a verification method: authenticator app, email to your registered personal\n   address, or SMS to your registered phone number.\n4. Follow the prompts to set a new password.\n5. The new password must meet the corporate complexity requirements:\n   - Minimum 12 characters\n   - At least one uppercase letter, one lowercase letter, one digit, and one special\n     character\n   - Must not match any of the last 10 passwords\n6. After reset, sign out of all sessions and sign in with the new password.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "common-KB-AUTH-001-5",
+      "family": "KB-AUTH-001-scenario-4",
+      "kind": "common",
+      "split": "held_out",
+      "question": "SSPR is unavailable and I need to reset my corporate password.",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [
+        "KB-AUTH-001"
+      ],
+      "expected_sections": [
+        "Helpdesk-assisted reset"
+      ],
+      "evidence_quote": "## Helpdesk-assisted reset\n\nIf SSPR is unavailable or you have not registered:\n\n1. Contact the IT helpdesk by phone or in-person. Do not request password resets by email\n   or chat, as identity cannot be verified securely through those channels.\n2. The helpdesk agent will verify your identity using your employee ID and at least one\n   additional factor (security questions, manager confirmation, or government-issued ID).\n3. The agent will issue a temporary password. You must change it at next login.\n4. Temporary passwords expire after **8 hours**.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "common-KB-AUTH-001-6",
+      "family": "KB-AUTH-001-scenario-5",
+      "kind": "common",
+      "split": "held_out",
+      "question": "An old password saved in a scheduled task keeps locking my account.",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [
+        "KB-AUTH-001"
+      ],
+      "expected_sections": [
+        "If the account is locked but the password is correct"
+      ],
+      "evidence_quote": "## If the account is locked but the password is correct\n\n1. Wait 30 minutes for the lockout to clear automatically.\n2. Check whether any service, mobile app, or scheduled task is repeatedly attempting to\n   authenticate with an old password. Update the saved credentials in those services.\n3. If the lockout recurs immediately after clearing: contact the helpdesk, as a background\n   process may be causing repeated failures.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "common-KB-APP-001-1",
+      "family": "KB-APP-001-scenario-0",
+      "kind": "common",
+      "split": "calibration",
+      "question": "An application fails to start with DLL not found.",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [
+        "KB-APP-001"
+      ],
+      "expected_sections": [
+        "Error: \"Application failed to start\" or \"DLL not found\""
+      ],
+      "evidence_quote": "## Error: \"Application failed to start\" or \"DLL not found\"\n\n**Likely cause:** A required runtime library (such as Microsoft Visual C++ Redistributable\nor .NET Framework) is missing or corrupted.\n\n**Steps:**\n\n1. Note the exact error message. If it mentions a specific `.dll` file, search for the\n   corresponding runtime on the Microsoft download site.\n2. Download and install the required Visual C++ Redistributable or .NET version.\n3. Restart the computer.\n4. If the error persists: use the **Programs and Features** control panel to repair or\n   reinstall the application.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "common-KB-APP-001-2",
+      "family": "KB-APP-001-scenario-1",
+      "kind": "common",
+      "split": "calibration",
+      "question": "An application says access denied when I launch it.",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [
+        "KB-APP-001"
+      ],
+      "expected_sections": [
+        "Error: \"Access denied\" when launching an application"
+      ],
+      "evidence_quote": "## Error: \"Access denied\" when launching an application\n\n**Likely cause:** User account lacks the required permissions, or an administrator account\nis required to run the application.\n\n**Steps:**\n\n1. Check whether right-clicking the application and selecting **Run as administrator**\n   resolves the issue.\n2. If administrator access resolves the issue: contact IT to review whether the application\n   requires a permanent privilege adjustment.\n3. Do not use a permanent administrator account for day-to-day work.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "common-KB-APP-001-3",
+      "family": "KB-APP-001-scenario-2",
+      "kind": "common",
+      "split": "calibration",
+      "question": "My application crashes immediately and freezes.",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [
+        "KB-APP-001"
+      ],
+      "expected_sections": [
+        "Error: Application crashes immediately or freezes"
+      ],
+      "evidence_quote": "## Error: Application crashes immediately or freezes\n\n**Likely cause:** Corrupted user profile data, insufficient memory, or a conflicting process.\n\n**Steps:**\n\n1. Close all other applications and try again.\n2. Check available RAM: open **Task Manager \u2192 Performance \u2192 Memory**.\n   - If memory usage is above 90%: restart the computer.\n3. Clear the application cache:\n   - Locate the application's cache folder, typically in `%LOCALAPPDATA%` or\n     `%APPDATA%\\[ApplicationName]`.\n   - Delete or rename the `cache` subfolder.\n4. Check the Windows Event Viewer for application error events:\n   - **Windows + X \u2192 Event Viewer \u2192 Windows Logs \u2192 Application**.\n   - Look for Error or Critical events at the time of the crash.\n5. Note the faulting module name from the Event Viewer and include it when contacting IT.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "common-KB-APP-001-4",
+      "family": "KB-APP-001-scenario-3",
+      "kind": "common",
+      "split": "held_out",
+      "question": "My application reports license not found or activation required.",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [
+        "KB-APP-001"
+      ],
+      "expected_sections": [
+        "Error: \"License not found\" or \"Activation required\""
+      ],
+      "evidence_quote": "## Error: \"License not found\" or \"Activation required\"\n\n**Likely cause:** Software license is not assigned to the user account, or the license\nserver is unreachable.\n\n**Steps:**\n\n1. Confirm you are signed in with your corporate account.\n2. Confirm you are connected to the corporate network or VPN.\n3. Contact IT to verify the license assignment in the software portal.\n4. Do not enter personal license keys in corporate applications.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "common-KB-APP-001-5",
+      "family": "KB-APP-001-scenario-4",
+      "kind": "common",
+      "split": "held_out",
+      "question": "An application update is stuck with a process running in the background.",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [
+        "KB-APP-001"
+      ],
+      "expected_sections": [
+        "Error: Application update fails or is stuck"
+      ],
+      "evidence_quote": "## Error: Application update fails or is stuck\n\n**Steps:**\n\n1. Ensure you are not on a metered or restricted network connection.\n2. Check whether a previous version of the application is still running in the background\n   (check **Task Manager \u2192 Details**).\n3. If a background process is running: end it, then retry the update.\n4. If the update consistently fails: contact IT to push the update via the software\n   management tool.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "common-KB-APP-001-6",
+      "family": "KB-APP-001-scenario-5",
+      "kind": "common",
+      "split": "held_out",
+      "question": "A Visual C++ runtime library is missing when launching a program.",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [
+        "KB-APP-001"
+      ],
+      "expected_sections": [
+        "Error: \"Application failed to start\" or \"DLL not found\""
+      ],
+      "evidence_quote": "## Error: \"Application failed to start\" or \"DLL not found\"\n\n**Likely cause:** A required runtime library (such as Microsoft Visual C++ Redistributable\nor .NET Framework) is missing or corrupted.\n\n**Steps:**\n\n1. Note the exact error message. If it mentions a specific `.dll` file, search for the\n   corresponding runtime on the Microsoft download site.\n2. Download and install the required Visual C++ Redistributable or .NET version.\n3. Restart the computer.\n4. If the error persists: use the **Programs and Features** control panel to repair or\n   reinstall the application.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "common-KB-HW-001-1",
+      "family": "KB-HW-001-scenario-0",
+      "kind": "common",
+      "split": "calibration",
+      "question": "My computer is slow with high CPU and memory usage.",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [
+        "KB-HW-001"
+      ],
+      "expected_sections": [
+        "Step 1 \u2014 Check current resource usage"
+      ],
+      "evidence_quote": "## Step 1 \u2014 Check current resource usage\n\n1. Press **Ctrl + Shift + Esc** to open Task Manager.\n2. Click the **Performance** tab to see CPU, memory, disk, and network usage.\n3. Click the **Processes** tab, sorted by CPU or Memory, to identify high-usage processes.\n4. Note the process names; look for unfamiliar applications.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "common-KB-HW-001-2",
+      "family": "KB-HW-001-scenario-1",
+      "kind": "common",
+      "split": "calibration",
+      "question": "My system disk is nearly full. What disk cleanup steps are supported?",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [
+        "KB-HW-001"
+      ],
+      "expected_sections": [
+        "Step 2 \u2014 Check available disk space"
+      ],
+      "evidence_quote": "## Step 2 \u2014 Check available disk space\n\n1. Open **File Explorer \u2192 This PC**.\n2. Ensure the system drive (usually C:) has at least **10% free space**.\n3. If disk space is below 10%:\n   - Empty the Recycle Bin.\n   - Delete files in `%TEMP%` (press **Windows + R**, type `%temp%`, press Enter, and\n     delete all files you are able to).\n   - Uninstall unused applications via **Settings \u2192 Apps**.\n   - Do not delete system files or files you cannot identify.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "common-KB-HW-001-3",
+      "family": "KB-HW-001-scenario-2",
+      "kind": "common",
+      "split": "calibration",
+      "question": "My computer is slow and has pending Windows updates.",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [
+        "KB-HW-001"
+      ],
+      "expected_sections": [
+        "Step 3 \u2014 Check for Windows updates"
+      ],
+      "evidence_quote": "## Step 3 \u2014 Check for Windows updates\n\n1. Open **Settings \u2192 Windows Update** and install pending updates.\n2. Restart after updates if prompted.\n3. Some performance issues, including GPU driver issues, are resolved by updates.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "common-KB-HW-001-4",
+      "family": "KB-HW-001-scenario-3",
+      "kind": "common",
+      "split": "held_out",
+      "question": "Too many startup programs slow down my laptop boot.",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [
+        "KB-HW-001"
+      ],
+      "expected_sections": [
+        "Step 4 \u2014 Check startup programs"
+      ],
+      "evidence_quote": "## Step 4 \u2014 Check startup programs\n\n1. Open Task Manager \u2192 **Startup** tab.\n2. Review the list of programs that start automatically.\n3. Right-click and **Disable** any non-essential startup programs.\n4. Do not disable security software, VPN clients, or IT management agents.\n5. Restart and test performance.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "common-KB-HW-001-5",
+      "family": "KB-HW-001-scenario-4",
+      "kind": "common",
+      "split": "held_out",
+      "question": "How do I run a full malware scan for a slow computer?",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [
+        "KB-HW-001"
+      ],
+      "expected_sections": [
+        "Step 5 \u2014 Run a malware scan"
+      ],
+      "evidence_quote": "## Step 5 \u2014 Run a malware scan\n\n1. Open **Windows Security \u2192 Virus & Threat Protection**.\n2. Run a **Full scan**.\n3. If threats are detected: follow the prompts and contact IT immediately.\n4. Do not attempt to remove threats manually from system directories.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "common-KB-HW-001-6",
+      "family": "KB-HW-001-scenario-5",
+      "kind": "common",
+      "split": "held_out",
+      "question": "My laptop fan is loud and the laptop is hot.",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [
+        "KB-HW-001"
+      ],
+      "expected_sections": [
+        "Step 6 \u2014 Check hardware health"
+      ],
+      "evidence_quote": "## Step 6 \u2014 Check hardware health\n\n**Thermal throttling (laptop runs hot and slows down):**\n1. Ensure the laptop vents are not blocked.\n2. Place the laptop on a hard surface, not a bed or cushion.\n3. If the fan is unusually loud or hot air is not expelled: schedule hardware maintenance.\n\n**Failing hard drive:**\n1. Open **Windows Security \u2192 Device Security \u2192 Core Isolation** and review Drive Health\n   if available, or use the manufacturer's drive diagnostic tool.\n2. Back up data immediately if drive errors are detected.\n3. Report to IT for drive replacement.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "followup-KB-NET-001-0",
+      "family": "KB-NET-001-scenario-0",
+      "kind": "followup",
+      "split": "calibration",
+      "question": "I tried that and it did not work. What can I try next?",
+      "history": [
+        {
+          "role": "user",
+          "content": "My laptop cannot connect to Wi-Fi but my phone can."
+        }
+      ],
+      "issue_query": "My laptop cannot connect to Wi-Fi but my phone can.",
+      "attempts": [
+        {
+          "step_id": "06e9b9f754afb4314374",
+          "outcome": "did_not_work"
+        }
+      ],
+      "expected_sources": [
+        "KB-NET-001"
+      ],
+      "expected_sections": [],
+      "evidence_quote": "## Step 1 \u2014 Confirm the problem scope\n\n- Check whether other devices on the same network (phone, colleague laptop) can connect.\n- If no device can connect: the access point or the broader network may be down. Report to\n  the network team and skip to the Escalation section.\n- If only your device cannot connect: continue to Step 2.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "followup-KB-NET-001-2",
+      "family": "KB-NET-001-scenario-2",
+      "kind": "followup",
+      "split": "calibration",
+      "question": "I tried that and it did not work. What can I try next?",
+      "history": [
+        {
+          "role": "user",
+          "content": "How do I forget and reconnect to my Wi-Fi network?"
+        }
+      ],
+      "issue_query": "How do I forget and reconnect to my Wi-Fi network?",
+      "attempts": [
+        {
+          "step_id": "63de68c38e627d165d51",
+          "outcome": "did_not_work"
+        }
+      ],
+      "expected_sources": [
+        "KB-NET-001"
+      ],
+      "expected_sections": [],
+      "evidence_quote": "## Step 3 \u2014 Forget and reconnect to the network\n\n1. Click the Wi-Fi icon in the taskbar.\n2. Click the arrow next to the network name \u2192 **Forget**.\n3. Wait 10 seconds, then reconnect and enter the passphrase.\n4. If you do not know the passphrase: contact the IT helpdesk. Passphrases are not stored\n   in tickets or email.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "followup-KB-NET-001-4",
+      "family": "KB-NET-001-scenario-4",
+      "kind": "followup",
+      "split": "held_out",
+      "question": "I tried that and it did not work. What can I try next?",
+      "history": [
+        {
+          "role": "user",
+          "content": "My wireless IPv4 address starts with 169.254. What should I check?"
+        }
+      ],
+      "issue_query": "My wireless IPv4 address starts with 169.254. What should I check?",
+      "attempts": [
+        {
+          "step_id": "043e4ceb3f1d11c5c531",
+          "outcome": "did_not_work"
+        }
+      ],
+      "expected_sources": [
+        "KB-NET-001"
+      ],
+      "expected_sections": [],
+      "evidence_quote": "## Step 5 \u2014 Check IP address assignment\n\n1. Open Command Prompt and run `ipconfig /all`.\n2. Confirm that the IPv4 address is in the expected subnet (e.g., 192.168.x.x or 10.x.x.x)\n   and not 169.254.x.x (APIPA \u2014 means DHCP failed).\n3. If the address is 169.254.x.x: the device is not receiving a DHCP lease.\n   - Try running `ipconfig /release` then `ipconfig /renew`.\n   - If this fails, report to the network team.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "followup-KB-NET-002-0",
+      "family": "KB-NET-002-scenario-0",
+      "kind": "followup",
+      "split": "calibration",
+      "question": "I tried that and it did not work. What can I try next?",
+      "history": [
+        {
+          "role": "user",
+          "content": "VPN cannot reach the server. How do I verify internet connectivity?"
+        }
+      ],
+      "issue_query": "VPN cannot reach the server. How do I verify internet connectivity?",
+      "attempts": [
+        {
+          "step_id": "2613df9090215ae1cf9e",
+          "outcome": "did_not_work"
+        }
+      ],
+      "expected_sources": [
+        "KB-NET-002"
+      ],
+      "expected_sections": [],
+      "evidence_quote": "## Step 1 \u2014 Verify internet connectivity\n\nBefore connecting to VPN, confirm you have internet access:\n\n1. Open a browser and navigate to a public site such as `example.com`.\n2. If you have no internet: troubleshoot your connection first (see KB-NET-001).\n3. VPN cannot connect without a working internet connection.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "followup-KB-NET-002-2",
+      "family": "KB-NET-002-scenario-2",
+      "kind": "followup",
+      "split": "calibration",
+      "question": "I tried that and it did not work. What can I try next?",
+      "history": [
+        {
+          "role": "user",
+          "content": "VPN says the client software is out of date."
+        }
+      ],
+      "issue_query": "VPN says the client software is out of date.",
+      "attempts": [
+        {
+          "step_id": "b958fc78cb795875f2cd",
+          "outcome": "did_not_work"
+        }
+      ],
+      "expected_sources": [
+        "KB-NET-002"
+      ],
+      "expected_sections": [],
+      "evidence_quote": "## Step 3 \u2014 Check the VPN client version\n\n1. Open the VPN client application.\n2. Navigate to **Help \u2192 About** and note the version number.\n3. Compare against the approved version listed in the IT portal.\n4. If out of date: download the current version from the internal software portal or\n   request an update from IT.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "followup-KB-NET-002-4",
+      "family": "KB-NET-002-scenario-4",
+      "kind": "followup",
+      "split": "held_out",
+      "question": "I tried that and it did not work. What can I try next?",
+      "history": [
+        {
+          "role": "user",
+          "content": "How can I check whether my VPN server address is correct?"
+        }
+      ],
+      "issue_query": "How can I check whether my VPN server address is correct?",
+      "attempts": [
+        {
+          "step_id": "8c39e9962937e36cf9f1",
+          "outcome": "did_not_work"
+        }
+      ],
+      "expected_sources": [
+        "KB-NET-002"
+      ],
+      "expected_sections": [],
+      "evidence_quote": "## Step 5 \u2014 Check the VPN server address\n\n1. Open the VPN client settings.\n2. Confirm the server address matches the address published in the IT portal.\n3. Do not change the server address without IT confirmation.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "followup-KB-AUTH-001-0",
+      "family": "KB-AUTH-001-scenario-0",
+      "kind": "followup",
+      "split": "calibration",
+      "question": "I tried that and it did not work. What can I try next?",
+      "history": [
+        {
+          "role": "user",
+          "content": "How do I use the self-service password reset portal?"
+        }
+      ],
+      "issue_query": "How do I use the self-service password reset portal?",
+      "attempts": [
+        {
+          "step_id": "4fcffbdaf4749eedb96e",
+          "outcome": "did_not_work"
+        }
+      ],
+      "expected_sources": [
+        "KB-AUTH-001"
+      ],
+      "expected_sections": [],
+      "evidence_quote": "## Self-service password reset (SSPR)\n\nIf you have previously registered for self-service reset:\n\n1. Navigate to the corporate SSPR portal at the URL provided by IT during onboarding.\n2. Enter your corporate email address.\n3. Choose a verification method: authenticator app, email to your registered personal\n   address, or SMS to your registered phone number.\n4. Follow the prompts to set a new password.\n5. The new password must meet the corporate complexity requirements:\n   - Minimum 12 characters\n   - At least one uppercase letter, one lowercase letter, one digit, and one special\n     character\n   - Must not match any of the last 10 passwords\n6. After reset, sign out of all sessions and sign in with the new password.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "followup-KB-AUTH-001-2",
+      "family": "KB-AUTH-001-scenario-2",
+      "kind": "followup",
+      "split": "calibration",
+      "question": "I tried that and it did not work. What can I try next?",
+      "history": [
+        {
+          "role": "user",
+          "content": "My account locks again immediately although the password is correct."
+        }
+      ],
+      "issue_query": "My account locks again immediately although the password is correct.",
+      "attempts": [
+        {
+          "step_id": "4848154a215843fa6ca3",
+          "outcome": "did_not_work"
+        }
+      ],
+      "expected_sources": [
+        "KB-AUTH-001"
+      ],
+      "expected_sections": [],
+      "evidence_quote": "## If the account is locked but the password is correct\n\n1. Wait 30 minutes for the lockout to clear automatically.\n2. Check whether any service, mobile app, or scheduled task is repeatedly attempting to\n   authenticate with an old password. Update the saved credentials in those services.\n3. If the lockout recurs immediately after clearing: contact the helpdesk, as a background\n   process may be causing repeated failures.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "followup-KB-AUTH-001-4",
+      "family": "KB-AUTH-001-scenario-4",
+      "kind": "followup",
+      "split": "held_out",
+      "question": "I tried that and it did not work. What can I try next?",
+      "history": [
+        {
+          "role": "user",
+          "content": "SSPR is unavailable and I need to reset my corporate password."
+        }
+      ],
+      "issue_query": "SSPR is unavailable and I need to reset my corporate password.",
+      "attempts": [
+        {
+          "step_id": "1494cbb1c41b90c072ab",
+          "outcome": "did_not_work"
+        }
+      ],
+      "expected_sources": [
+        "KB-AUTH-001"
+      ],
+      "expected_sections": [],
+      "evidence_quote": "## Helpdesk-assisted reset\n\nIf SSPR is unavailable or you have not registered:\n\n1. Contact the IT helpdesk by phone or in-person. Do not request password resets by email\n   or chat, as identity cannot be verified securely through those channels.\n2. The helpdesk agent will verify your identity using your employee ID and at least one\n   additional factor (security questions, manager confirmation, or government-issued ID).\n3. The agent will issue a temporary password. You must change it at next login.\n4. Temporary passwords expire after **8 hours**.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "followup-KB-APP-001-0",
+      "family": "KB-APP-001-scenario-0",
+      "kind": "followup",
+      "split": "calibration",
+      "question": "I tried that and it did not work. What can I try next?",
+      "history": [
+        {
+          "role": "user",
+          "content": "An application fails to start with DLL not found."
+        }
+      ],
+      "issue_query": "An application fails to start with DLL not found.",
+      "attempts": [
+        {
+          "step_id": "20af9f283e00d21ef4b4",
+          "outcome": "did_not_work"
+        }
+      ],
+      "expected_sources": [
+        "KB-APP-001"
+      ],
+      "expected_sections": [],
+      "evidence_quote": "## Error: \"Application failed to start\" or \"DLL not found\"\n\n**Likely cause:** A required runtime library (such as Microsoft Visual C++ Redistributable\nor .NET Framework) is missing or corrupted.\n\n**Steps:**\n\n1. Note the exact error message. If it mentions a specific `.dll` file, search for the\n   corresponding runtime on the Microsoft download site.\n2. Download and install the required Visual C++ Redistributable or .NET version.\n3. Restart the computer.\n4. If the error persists: use the **Programs and Features** control panel to repair or\n   reinstall the application.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "followup-KB-APP-001-2",
+      "family": "KB-APP-001-scenario-2",
+      "kind": "followup",
+      "split": "calibration",
+      "question": "I tried that and it did not work. What can I try next?",
+      "history": [
+        {
+          "role": "user",
+          "content": "My application crashes immediately and freezes."
+        }
+      ],
+      "issue_query": "My application crashes immediately and freezes.",
+      "attempts": [
+        {
+          "step_id": "cecc9b3c73acaa600fc0",
+          "outcome": "did_not_work"
+        }
+      ],
+      "expected_sources": [
+        "KB-APP-001"
+      ],
+      "expected_sections": [],
+      "evidence_quote": "## Error: Application crashes immediately or freezes\n\n**Likely cause:** Corrupted user profile data, insufficient memory, or a conflicting process.\n\n**Steps:**\n\n1. Close all other applications and try again.\n2. Check available RAM: open **Task Manager \u2192 Performance \u2192 Memory**.\n   - If memory usage is above 90%: restart the computer.\n3. Clear the application cache:\n   - Locate the application's cache folder, typically in `%LOCALAPPDATA%` or\n     `%APPDATA%\\[ApplicationName]`.\n   - Delete or rename the `cache` subfolder.\n4. Check the Windows Event Viewer for application error events:\n   - **Windows + X \u2192 Event Viewer \u2192 Windows Logs \u2192 Application**.\n   - Look for Error or Critical events at the time of the crash.\n5. Note the faulting module name from the Event Viewer and include it when contacting IT.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "followup-KB-APP-001-4",
+      "family": "KB-APP-001-scenario-4",
+      "kind": "followup",
+      "split": "held_out",
+      "question": "I tried that and it did not work. What can I try next?",
+      "history": [
+        {
+          "role": "user",
+          "content": "An application update is stuck with a process running in the background."
+        }
+      ],
+      "issue_query": "An application update is stuck with a process running in the background.",
+      "attempts": [
+        {
+          "step_id": "735d61e37983528eb0c7",
+          "outcome": "did_not_work"
+        }
+      ],
+      "expected_sources": [
+        "KB-APP-001"
+      ],
+      "expected_sections": [],
+      "evidence_quote": "## Error: Application update fails or is stuck\n\n**Steps:**\n\n1. Ensure you are not on a metered or restricted network connection.\n2. Check whether a previous version of the application is still running in the background\n   (check **Task Manager \u2192 Details**).\n3. If a background process is running: end it, then retry the update.\n4. If the update consistently fails: contact IT to push the update via the software\n   management tool.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "followup-KB-HW-001-0",
+      "family": "KB-HW-001-scenario-0",
+      "kind": "followup",
+      "split": "calibration",
+      "question": "I tried that and it did not work. What can I try next?",
+      "history": [
+        {
+          "role": "user",
+          "content": "My computer is slow with high CPU and memory usage."
+        }
+      ],
+      "issue_query": "My computer is slow with high CPU and memory usage.",
+      "attempts": [
+        {
+          "step_id": "7eaf00a377d70e894c82",
+          "outcome": "did_not_work"
+        }
+      ],
+      "expected_sources": [
+        "KB-HW-001"
+      ],
+      "expected_sections": [],
+      "evidence_quote": "## Step 1 \u2014 Check current resource usage\n\n1. Press **Ctrl + Shift + Esc** to open Task Manager.\n2. Click the **Performance** tab to see CPU, memory, disk, and network usage.\n3. Click the **Processes** tab, sorted by CPU or Memory, to identify high-usage processes.\n4. Note the process names; look for unfamiliar applications.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "followup-KB-HW-001-2",
+      "family": "KB-HW-001-scenario-2",
+      "kind": "followup",
+      "split": "calibration",
+      "question": "I tried that and it did not work. What can I try next?",
+      "history": [
+        {
+          "role": "user",
+          "content": "My computer is slow and has pending Windows updates."
+        }
+      ],
+      "issue_query": "My computer is slow and has pending Windows updates.",
+      "attempts": [
+        {
+          "step_id": "359919cb109643332d7c",
+          "outcome": "did_not_work"
+        }
+      ],
+      "expected_sources": [
+        "KB-HW-001"
+      ],
+      "expected_sections": [],
+      "evidence_quote": "## Step 3 \u2014 Check for Windows updates\n\n1. Open **Settings \u2192 Windows Update** and install pending updates.\n2. Restart after updates if prompted.\n3. Some performance issues, including GPU driver issues, are resolved by updates.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "followup-KB-HW-001-4",
+      "family": "KB-HW-001-scenario-4",
+      "kind": "followup",
+      "split": "held_out",
+      "question": "I tried that and it did not work. What can I try next?",
+      "history": [
+        {
+          "role": "user",
+          "content": "How do I run a full malware scan for a slow computer?"
+        }
+      ],
+      "issue_query": "How do I run a full malware scan for a slow computer?",
+      "attempts": [
+        {
+          "step_id": "e7e3ae152c14335228d7",
+          "outcome": "did_not_work"
+        }
+      ],
+      "expected_sources": [
+        "KB-HW-001"
+      ],
+      "expected_sections": [],
+      "evidence_quote": "## Step 5 \u2014 Run a malware scan\n\n1. Open **Windows Security \u2192 Virus & Threat Protection**.\n2. Run a **Full scan**.\n3. If threats are detected: follow the prompts and contact IT immediately.\n4. Do not attempt to remove threats manually from system directories.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": null
+    },
+    {
+      "id": "partial-KB-NET-001-1",
+      "family": "KB-NET-001-scenario-1",
+      "kind": "partial",
+      "split": "calibration",
+      "question": "The wireless adapter has a yellow warning icon in Device Manager. Also tell me the exact internal service URL.",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [
+        "KB-NET-001"
+      ],
+      "expected_sections": [
+        "Step 2 \u2014 Check the wireless adapter"
+      ],
+      "evidence_quote": "## Step 2 \u2014 Check the wireless adapter\n\n1. Press **Windows + X** and select **Device Manager**.\n2. Expand **Network Adapters**.\n3. Look for a yellow warning icon on the Wi-Fi adapter.\n4. If a warning icon is present: right-click the adapter and select **Update driver** \u2192\n   **Search automatically for updated drivers**.\n5. If the adapter is missing entirely: the driver may be corrupted. Reinstall the driver from\n   the manufacturer's support site.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": "Also tell me the exact internal service URL."
+    },
+    {
+      "id": "partial-KB-NET-001-3",
+      "family": "KB-NET-001-scenario-3",
+      "kind": "partial",
+      "split": "held_out",
+      "question": "Wi-Fi DNS is failing. How do I flush DNS and reset TCP/IP? Also guarantee that this will be fixed in five minutes.",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [
+        "KB-NET-001"
+      ],
+      "expected_sections": [
+        "Step 4 \u2014 Flush DNS and reset the TCP/IP stack"
+      ],
+      "evidence_quote": "## Step 4 \u2014 Flush DNS and reset the TCP/IP stack\n\nOpen **Command Prompt as Administrator** and run the following commands one at a time:\n\n```\nipconfig /flushdns\nnetsh int ip reset\nnetsh winsock reset\n```\n\nRestart the computer after running these commands.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": "Also guarantee that this will be fixed in five minutes."
+    },
+    {
+      "id": "partial-KB-NET-002-1",
+      "family": "KB-NET-002-scenario-1",
+      "kind": "partial",
+      "split": "calibration",
+      "question": "VPN authentication failed and the MFA prompt did not arrive. Also tell me the exact internal service URL.",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [
+        "KB-NET-002"
+      ],
+      "expected_sections": [
+        "Step 2 \u2014 Confirm credentials"
+      ],
+      "evidence_quote": "## Step 2 \u2014 Confirm credentials\n\n1. Use your corporate username (firstname.lastname format) and current password.\n2. If MFA is required: approve the push notification in your authenticator app within\n   60 seconds. If the notification does not arrive, use the TOTP code instead.\n3. Do not enter the MFA code in the password field.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": "Also tell me the exact internal service URL."
+    },
+    {
+      "id": "partial-KB-NET-002-3",
+      "family": "KB-NET-002-scenario-3",
+      "kind": "partial",
+      "split": "held_out",
+      "question": "How do I clear the VPN client cache? Also guarantee that this will be fixed in five minutes.",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [
+        "KB-NET-002"
+      ],
+      "expected_sections": [
+        "Step 4 \u2014 Clear VPN client cache"
+      ],
+      "evidence_quote": "## Step 4 \u2014 Clear VPN client cache\n\n1. Disconnect and close the VPN client.\n2. In Windows, navigate to `%APPDATA%\\VPNClient` (replace VPNClient with your client\n   folder name) and delete the `cache` subfolder.\n3. Restart the VPN client and reconnect.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": "Also guarantee that this will be fixed in five minutes."
+    },
+    {
+      "id": "partial-KB-AUTH-001-1",
+      "family": "KB-AUTH-001-scenario-1",
+      "kind": "partial",
+      "split": "calibration",
+      "question": "My password reset registration is missing. How can helpdesk assist? Also tell me the exact internal service URL.",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [
+        "KB-AUTH-001"
+      ],
+      "expected_sections": [
+        "Helpdesk-assisted reset"
+      ],
+      "evidence_quote": "## Helpdesk-assisted reset\n\nIf SSPR is unavailable or you have not registered:\n\n1. Contact the IT helpdesk by phone or in-person. Do not request password resets by email\n   or chat, as identity cannot be verified securely through those channels.\n2. The helpdesk agent will verify your identity using your employee ID and at least one\n   additional factor (security questions, manager confirmation, or government-issued ID).\n3. The agent will issue a temporary password. You must change it at next login.\n4. Temporary passwords expire after **8 hours**.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": "Also tell me the exact internal service URL."
+    },
+    {
+      "id": "partial-KB-AUTH-001-3",
+      "family": "KB-AUTH-001-scenario-3",
+      "kind": "partial",
+      "split": "held_out",
+      "question": "I forgot my password and have registered an authenticator for SSPR. Also guarantee that this will be fixed in five minutes.",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [
+        "KB-AUTH-001"
+      ],
+      "expected_sections": [
+        "Self-service password reset (SSPR)"
+      ],
+      "evidence_quote": "## Self-service password reset (SSPR)\n\nIf you have previously registered for self-service reset:\n\n1. Navigate to the corporate SSPR portal at the URL provided by IT during onboarding.\n2. Enter your corporate email address.\n3. Choose a verification method: authenticator app, email to your registered personal\n   address, or SMS to your registered phone number.\n4. Follow the prompts to set a new password.\n5. The new password must meet the corporate complexity requirements:\n   - Minimum 12 characters\n   - At least one uppercase letter, one lowercase letter, one digit, and one special\n     character\n   - Must not match any of the last 10 passwords\n6. After reset, sign out of all sessions and sign in with the new password.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": "Also guarantee that this will be fixed in five minutes."
+    },
+    {
+      "id": "partial-KB-APP-001-1",
+      "family": "KB-APP-001-scenario-1",
+      "kind": "partial",
+      "split": "calibration",
+      "question": "An application says access denied when I launch it. Also tell me the exact internal service URL.",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [
+        "KB-APP-001"
+      ],
+      "expected_sections": [
+        "Error: \"Access denied\" when launching an application"
+      ],
+      "evidence_quote": "## Error: \"Access denied\" when launching an application\n\n**Likely cause:** User account lacks the required permissions, or an administrator account\nis required to run the application.\n\n**Steps:**\n\n1. Check whether right-clicking the application and selecting **Run as administrator**\n   resolves the issue.\n2. If administrator access resolves the issue: contact IT to review whether the application\n   requires a permanent privilege adjustment.\n3. Do not use a permanent administrator account for day-to-day work.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": "Also tell me the exact internal service URL."
+    },
+    {
+      "id": "partial-KB-APP-001-3",
+      "family": "KB-APP-001-scenario-3",
+      "kind": "partial",
+      "split": "held_out",
+      "question": "My application reports license not found or activation required. Also guarantee that this will be fixed in five minutes.",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [
+        "KB-APP-001"
+      ],
+      "expected_sections": [
+        "Error: \"License not found\" or \"Activation required\""
+      ],
+      "evidence_quote": "## Error: \"License not found\" or \"Activation required\"\n\n**Likely cause:** Software license is not assigned to the user account, or the license\nserver is unreachable.\n\n**Steps:**\n\n1. Confirm you are signed in with your corporate account.\n2. Confirm you are connected to the corporate network or VPN.\n3. Contact IT to verify the license assignment in the software portal.\n4. Do not enter personal license keys in corporate applications.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": "Also guarantee that this will be fixed in five minutes."
+    },
+    {
+      "id": "partial-KB-HW-001-1",
+      "family": "KB-HW-001-scenario-1",
+      "kind": "partial",
+      "split": "calibration",
+      "question": "My system disk is nearly full. What disk cleanup steps are supported? Also tell me the exact internal service URL.",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [
+        "KB-HW-001"
+      ],
+      "expected_sections": [
+        "Step 2 \u2014 Check available disk space"
+      ],
+      "evidence_quote": "## Step 2 \u2014 Check available disk space\n\n1. Open **File Explorer \u2192 This PC**.\n2. Ensure the system drive (usually C:) has at least **10% free space**.\n3. If disk space is below 10%:\n   - Empty the Recycle Bin.\n   - Delete files in `%TEMP%` (press **Windows + R**, type `%temp%`, press Enter, and\n     delete all files you are able to).\n   - Uninstall unused applications via **Settings \u2192 Apps**.\n   - Do not delete system files or files you cannot identify.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": "Also tell me the exact internal service URL."
+    },
+    {
+      "id": "partial-KB-HW-001-3",
+      "family": "KB-HW-001-scenario-3",
+      "kind": "partial",
+      "split": "held_out",
+      "question": "Too many startup programs slow down my laptop boot. Also guarantee that this will be fixed in five minutes.",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [
+        "KB-HW-001"
+      ],
+      "expected_sections": [
+        "Step 4 \u2014 Check startup programs"
+      ],
+      "evidence_quote": "## Step 4 \u2014 Check startup programs\n\n1. Open Task Manager \u2192 **Startup** tab.\n2. Review the list of programs that start automatically.\n3. Right-click and **Disable** any non-essential startup programs.\n4. Do not disable security software, VPN clients, or IT management agents.\n5. Restart and test performance.",
+      "expects_abstention": false,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": "Also guarantee that this will be fixed in five minutes."
+    },
+    {
+      "id": "out-of-scope-1",
+      "family": "out-of-scope-1",
+      "kind": "out_of_scope",
+      "split": "calibration",
+      "question": "How do I bake sourdough bread?",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [],
+      "expected_sections": [],
+      "evidence_quote": "",
+      "expects_abstention": true,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": "How do I bake sourdough bread?"
+    },
+    {
+      "id": "out-of-scope-2",
+      "family": "out-of-scope-2",
+      "kind": "out_of_scope",
+      "split": "calibration",
+      "question": "Configure Kubernetes ingress controller annotations for my cluster.",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [],
+      "expected_sections": [],
+      "evidence_quote": "",
+      "expects_abstention": true,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": "Configure Kubernetes ingress controller annotations for my cluster."
+    },
+    {
+      "id": "out-of-scope-3",
+      "family": "out-of-scope-3",
+      "kind": "out_of_scope",
+      "split": "held_out",
+      "question": "Calculate a mortgage repayment schedule.",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [],
+      "expected_sections": [],
+      "evidence_quote": "",
+      "expects_abstention": true,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": "Calculate a mortgage repayment schedule."
+    },
+    {
+      "id": "out-of-scope-4",
+      "family": "out-of-scope-4",
+      "kind": "out_of_scope",
+      "split": "held_out",
+      "question": "Write Terraform modules for an AWS production database.",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [],
+      "expected_sections": [],
+      "evidence_quote": "",
+      "expects_abstention": true,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": "Write Terraform modules for an AWS production database."
+    },
+    {
+      "id": "out-of-scope-5",
+      "family": "out-of-scope-5",
+      "kind": "out_of_scope",
+      "split": "held_out",
+      "question": "asdfghjkl qwerty 12345",
+      "history": [],
+      "attempts": [],
+      "expected_sources": [],
+      "expected_sections": [],
+      "evidence_quote": "",
+      "expects_abstention": true,
+      "review_status": "draft_needs_human_review",
+      "unsupported_request": "asdfghjkl qwerty 12345"
+    }
+  ]
+}
