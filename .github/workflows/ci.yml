@@ -30,4 +30,4 @@ jobs:
         env:
           LLM_PROVIDER: mock
           EMBEDDING_PROVIDER: mock
-        run: pytest tests/ -v --tb=short
+        run: python -m pytest tests/ -v --tb=short
