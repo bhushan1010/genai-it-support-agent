@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment and secrets
+.env
+*.env.local
+
+# Vector store (rebuild from documents)
+vectorstore/
+
+# Evaluation results (generated, not source)
+data/eval/eval_results.json
+
+# Streamlit cache
+.streamlit/*
+!.streamlit/config.toml
+
+# Pytest
+.pytest_cache/
+
+# Coverage
+.coverage
+htmlcov/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Sentence-transformers model cache (large, downloaded on first run)
+# Uncomment if you want to exclude the model cache from your workspace
+# ~/.cache/torch/
+
+# Local application logs
+.runtime/
+
+# Downloaded Codex skill collection (not application source)
+skills-main/
